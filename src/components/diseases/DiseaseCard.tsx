@@ -2,8 +2,9 @@ import React from "react";
 import { DiseaseModel } from "../../models";
 import "./DiseaseCard.css";
 
-export const DiseaseCard = (props: { disease: DiseaseModel, delete: (event: number) => void }) => {
-    return <div className="card">
+export const DiseaseCard = (props: { disease: DiseaseModel, isActive?: boolean, delete: (event: number) => void, select: (event: number) => void }) => {
+    return <div className={props.isActive ? "card active" : "card"}
+        onClick={() => props.select(props.disease.id)}>
         <div className="card-header">
             <h3>{props.disease.name}</h3>
             <div className="card-subtitle">{props.disease.scientificNotation}</div>

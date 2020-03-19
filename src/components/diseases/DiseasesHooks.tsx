@@ -8,23 +8,28 @@ import { DiseaseCard } from "./DiseaseCard";
 
 export const DiseasesHooks = () => {
     const [diseases, setDiseases] = useState([] as DiseaseModel[]);
-    const [loading, setloading] = useState(true);
+    const [selectedDiseaseId, setSelectedDisease] = useState(0);
     const api = new DiseaseApi();
 
     const deleteDisease = (id: number) => setDiseases(diseases.filter(disease => disease.id !== id));
+    const selectDisease = (id: number) => setSelectedDisease(id);
 
     useEffect(() => {
         api.getAllDiseases().then((diseasesResponse) => {
             console.log('[DiseasesHooks] Init');
             setDiseases(diseasesResponse);
-            setloading(false);
-            return () => {
-                console.log('[DiseasesHooks] Cleanup');
-            }
         });
+        return () => {
+            console.log('[DiseasesHooks] Cleanup');
+        }
     }, [1]);
 
-    const diseaseCards = diseases.map(disease => <DiseaseCard key={disease.id} disease={disease} delete={deleteDisease}></DiseaseCard>);
+    const diseaseCards = diseases.map(disease => <DiseaseCard
+        key={disease.id}
+        disease={disease}
+        isActive={selectedDiseaseId === disease.id}
+        delete={deleteDisease}
+        select={selectDisease}></DiseaseCard>);
 
     return <div className="disease-list">
         {diseaseCards}

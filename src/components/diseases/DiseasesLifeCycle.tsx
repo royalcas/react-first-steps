@@ -7,6 +7,7 @@ import { DiseaseCard } from "./DiseaseCard";
 export type IndexState = {
     loading: boolean;
     diseases: DiseaseModel[];
+    selectedId: number;
 };
 
 export class DiseasesLifeCycle extends React.Component<any, IndexState>  {
@@ -19,6 +20,7 @@ export class DiseasesLifeCycle extends React.Component<any, IndexState>  {
         this.state = {
             loading: true,
             diseases: [],
+            selectedId: 0,
         };
     }
     async componentDidMount() {
@@ -39,9 +41,20 @@ export class DiseasesLifeCycle extends React.Component<any, IndexState>  {
         })
     }
 
+    selectDisease = (selectedId: number) => {
+        this.setState({
+            selectedId
+        })
+    }
+
     render() {
         console.log('[DiseasesLifeCycle] render');
-        const diseaseCards = this.state?.diseases.map(disease => <DiseaseCard key={disease.id} disease={disease} delete={this.deleteDisease}></DiseaseCard>);
+        const diseaseCards = this.state?.diseases.map(disease => <DiseaseCard
+            key={disease.id}
+            isActive={this.state.selectedId === disease.id}
+            disease={disease}
+            delete={this.deleteDisease}
+            select={this.selectDisease}></DiseaseCard>);
 
         return <div className="disease-list">
             {diseaseCards}
