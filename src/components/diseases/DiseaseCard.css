@@ -22,6 +22,6 @@
      max-width: 100%;
    }
   
-   .card .card-content, .card .card-header {
+   .card .card-content, .card .card-header, .card .card-footer {
     padding: 20px;
   }
