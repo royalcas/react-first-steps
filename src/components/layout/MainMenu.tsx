@@ -1,4 +1,4 @@
-import { faAddressCard, faFileMedical } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard, faFileMedical, faList } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from "react-router-dom";
@@ -21,6 +21,14 @@ export const MainMenu = () => {
                         <FontAwesomeIcon icon={faAddressCard} />
                     </span>
                     <span className="main-menu--item-label">Form Demo</span>
+                </Link>
+            </li>
+            <li>
+                <Link to='/todo'>
+                    <span className="main-menu--item-icon">
+                        <FontAwesomeIcon icon={faList} />
+                    </span>
+                    <span className="main-menu--item-label">To Do</span>
                 </Link>
             </li>
         </ul>

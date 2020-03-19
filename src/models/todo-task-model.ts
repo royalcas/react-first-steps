@@ -1,0 +1,1 @@
+export type ToDoTask = { id: number, text: string, createdDate: Date, done?: boolean }

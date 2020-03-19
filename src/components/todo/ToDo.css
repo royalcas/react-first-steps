@@ -1,0 +1,71 @@
+.todo-container .todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-container .todo-list li {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    position: relative;
+}
+
+.todo-container .todo-list li.done {
+    text-decoration: line-through;
+}
+
+.todo-container .todo-list li .delete-task-button {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CCC;
+    color: #888;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    min-width: 0px;
+    line-height: 20px;
+    font-size: 1rem;
+    padding: 0;
+}
+
+.todo-container .todo-add-container > form {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    margin-bottom: 20px;
+}
+
+.todo-container .todo-add-container > form > input {
+    width: 100%;
+    padding: 8px 15px;
+    border: none;
+    background-color: #CCC;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-right: 10px;
+}
