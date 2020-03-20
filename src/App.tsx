@@ -5,7 +5,7 @@ import { FirstForm } from './components/FirstForm';
 import { HooksDemo } from './components/HooksDemo';
 import { AppLogo } from './components/layout/Logo';
 import { MainMenu } from './components/layout/MainMenu';
-import { ToDoDefault } from './components/todo/ToDoDefault';
+import ToDoRedux from './components/todo/ToDoRedux';
 import { Index } from './pages/Index';
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
               <FirstForm />
             </Route>
             <Route path="/todo">
-              <ToDoDefault />
+              <ToDoRedux />
             </Route>
           </Switch>
         </main>
